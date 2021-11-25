@@ -1,0 +1,20 @@
+
+
+   <div class="wrapperStyle">
+    <div class="uidWrapperStyle">
+      <div>
+        <p class="subtitleStyle">register using username</p>
+      </div>
+      <div class="inputWrapperStyle">
+        <input
+          type="text"
+          placeholder="Enter your username here"
+          [(ngModel)]="userInput"
+        />
+      </div>
+      <div class="loginBtn">
+        <button type="button" (click)="onCreate(userInput)">register</button>
+      </div>
+    </div>
+  </div>
+  

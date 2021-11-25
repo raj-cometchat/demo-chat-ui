@@ -1,0 +1,140 @@
+
+<!--  -->
+  <div class="container-fluid" >      
+    <div class="row">
+        
+      <div class="col-md-4"
+      [ngClass]="{'user-section' : userSelected}"
+      >
+     
+  
+        <div class="user-list-card">
+          
+          <div
+          *ngFor="let user of userListData"
+            class="user-card"
+            [ngClass]="user?.name === selectedUser?.name && 'active'"
+            [attr.data-uid]="user?.uid"
+            
+            
+            (click)="selectUserHandler($event)"
+  
+          >
+            <img [src]="user?.avatar || selectedUser?.defaultAvatarImage" [alt]="user?.name" class="avatar" />
+            <p class="username" [attr.data-uid]="user?.uid" [attr.data.status]="user?.status">{{ user?.name }}
+  
+              
+            </p>
+           
+            <span class="statusShow">
+              <span class="messageCount"></span>
+             <span class="user-status">
+              {{user?.status}} 
+             </span>
+              <span class="statusLogo"> 
+                <img *ngIf="user?.status == 'online'" src="../../../assets/user/download.jpeg" alt="">
+  
+                <img *ngIf="user?.status == 'offline'" src="../../../assets/user/7445_status_offline.png" alt="">
+  
+                
+              </span>
+            </span>
+             
+           
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8" *ngIf="userSelected"
+      [ngClass]="{'user-section' : !userSelected}"
+      >
+  
+  
+        <div class="chat-container">
+          <ng-container >
+            <div class="chat-header">
+              <div class="back-btn">
+                <button class="back-button btn-sm px-3" (click)="hideChat()" >back</button>
+              </div>
+              <div class="left-section">
+                
+                <img
+                [src]="selectedUser?.avatar || selectedUser?.defaultAvatarImage"
+                [alt]="selectedUser?.name"
+                class="avatar"
+              />
+              <p class="username">{{ selectedUser?.name }}</p>
+              </div>
+  
+              
+            </div>
+  
+            <div class="chat-body">
+              <div
+              *ngFor="let item of selectedUser?.messages"
+              class="renderMessage"
+              [ngClass]="currentUser == item.receiver.uid ? 'render-right': 'render-left'" >
+              <!-- <p> {{item.sender.name}} </p> -->
+              <!-- <img src="../../../assets/user/dots.png" alt="" width="15px"> -->
+              <!-- normal text -->
+                <p class="message-container " [attr.data-message-id]="item.id" *ngIf="item.category == 'message' && item.text">
+                
+                  <span class="action-btn hide-btn" >
+                    <button class="hidden-btn btn-sm" (click)="editText($event)">
+                      edit text
+                    </button>
+                    <button class="hidden-btn btn-sm" (click)="deleteText($event)">
+                      delete text
+                    </button>
+                  </span>
+              
+                    {{ item.text}}
+                    
+                
+                  <!-- <span *ngIf="selectedUser?.status == 'online'" [ngClass]="{'tick-check' : userSelected}"> seen </span> -->
+                  <span class="date-time"> {{toDateTime(item.sentAt)}} </span> 
+              
+                </p>
+                
+  
+  
+                
+              
+                
+              </div>
+            </div>
+          
+  
+            <div class="chat-footer">
+              <div class="row inputAndSend">
+                <div class="col-md-10">
+                  <div class="form-group mb-0">
+                    <input
+                      type="text"
+                      placeholder="Type a message"
+                      class="form-control"
+                      [(ngModel)]="messageText"
+                      (keyup)="$event.keyCode === 13 && sendMessage()"
+                    />
+                  </div>
+                </div>
+  
+                <div class="col-md-2 text-center align-self-center">
+                  <button
+                    class=""
+                    (click)="sendMessage()"
+                  >
+                    Send
+                  </button>
+                  <!-- btn-primary  -->
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="btn logout-btn">
+    <button (click)="onLogout()">Logout</button>
+  </div>
+  

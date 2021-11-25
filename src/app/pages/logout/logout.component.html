@@ -1,0 +1,22 @@
+
+
+  <div class="wrapperStyle">
+    <div class="uidWrapperStyle">
+      <div>
+        <p class="subtitleStyle">Login using username</p>
+      </div>
+      <div class="inputWrapperStyle">
+        <input
+          type="text"
+          placeholder="Enter your username here"
+          [(ngModel)]="userInput"
+        />
+      </div>
+      <div class="loginBtn">
+        <button type="button" (click)="onLogin(userInput)">Login</button>
+        <button type="button" (click)="redirectToRegister()">register</button>
+
+      </div>
+    </div>
+  </div>
+  

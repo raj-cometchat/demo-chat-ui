@@ -1,0 +1,262 @@
+
+
+// 
+/* You can add global styles to this file, and also import other style files */
+body {
+  background-color: #e5e5e5;
+}
+
+.container-fluid {
+  padding: 50px 20px;
+  overflow: hidden;
+}
+
+.user-list-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  height: calc(100vh - 100px);
+  padding: 10px;
+  overflow-y: auto;
+
+  .user-card {
+    display: flex;
+    padding: 10px;
+    cursor: pointer;
+
+    &.active {
+      background-color: #ededed;
+    }
+
+    .avatar {
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 15px 0 0;
+    }
+
+    .username {
+      font-size: 20px;
+      font-weight: 500;
+      margin-bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .statusShow {
+      font-size: 8px;
+      margin-left: auto;
+      align-items: center;
+      display: flex;
+      justify-content: space-evenly;
+      width: 51px;
+      .statusLogo {
+        height: 8px;
+        width: 8px;
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .user-card:not(:last-child) {
+    border-bottom: 1px solid #bbbbbb;
+  }
+}
+
+.chat-container {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  height: calc(100vh - 100px);
+  position: relative;
+  overflow: hidden;
+
+  .chat-header {
+    height: 70px;
+    background-color: #ededed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .avatar {
+      height: 30px;
+      width: 30px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 20px;
+    }
+    .left-section {
+      display: flex;
+      justify-content: space-evenly;
+
+     
+    }
+
+    .username {
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .back-btn {
+      display: none;
+    }
+  }
+
+  .chat-body {
+    background-image: url("../../../assets/bg-image.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: calc(100vh - 220px);
+    padding: 30px;
+    overflow-y: auto;
+
+    .message-container {
+      // background-color: white;
+      padding: 7px;
+      border-radius: 5px;
+      width: fit-content;
+      max-width: 90%;
+      margin-bottom: 15px;
+    }
+
+    .same-user {
+      display: flex;
+      justify-content: flex-end;
+
+      // .message-container {
+      //   background-color: lightskyblue;
+      // }
+    }
+  }
+
+  .chat-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #ededed;
+    padding: 10px 20px;
+
+    .form-control {
+      background-color: white;
+      border: 1px solid #d8ddec;
+      box-sizing: border-box;
+      border-radius: 20px;
+      font-size: 1rem;
+      color: black;
+    }
+  }
+}
+
+.render-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  .message-container {
+    background-color: white;
+  }
+  .tick-check {
+    display: none;
+  }
+}
+
+.user-section {
+  display: block;
+}
+.date-time {
+  font-size: xx-small;
+}
+.message-container {
+  background-color: rgb(90, 149, 172);
+  display: inline-block;
+}
+.tick-check {
+  display: block;
+  font-size: xx-small;
+}
+.messageCount {
+  background-color: red;
+  color: white;
+  font-size: x-small;
+  margin-right: 5px;
+  border-radius: 10px;
+  
+}
+.inputAndSend{
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: 3fr 1fr;
+}
+.hide-btn{
+  display: none;
+}
+// .show-btn{
+//   display: block;
+// }
+.action-message{
+  font-size: xx-small;
+  color: red;
+}
+.render-left:hover{
+  cursor: pointer;
+  .action-btn{
+    
+    display: flex;
+    font-size: smaller;
+    
+  }
+}
+// .btn{
+//   color: white;
+// }
+.logout-btn{
+  margin-top: -5px;
+  margin-bottom: -4px;
+  
+}
+.hidden-btn{
+  font-size: smaller;
+}
+
+
+
+
+@media screen and (max-width: 767px) {
+  .user-section {
+    display: none;
+  }
+  .back-btn {
+    display: flex !important;
+    justify-content: space-between;
+    // margin-left: 35%;
+    // margin-right: 15px;
+    margin-left: -17px;
+  }
+  .chat-header{
+    
+    justify-content: space-between;
+    padding: 0 10px;
+  }
+    .username{
+      font-size: smaller !important;
+    }
+
+    .action-btn{
+      font-size: x-small;
+      
+    }
+  
+}
+
+
+// 
+
